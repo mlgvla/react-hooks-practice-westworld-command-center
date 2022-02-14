@@ -1,20 +1,24 @@
-import React from "react";
-import { Card } from "semantic-ui-react";
-import "../stylesheets/Host.css";
+import React from "react"
+import { Card } from "semantic-ui-react"
+import "../stylesheets/Host.css"
 
-function Host({host}) {
-  const {imageUrl} = host
-    console.log(host)
+function Host({ host, onHostClick }) {
+  const { imageUrl, selected } = host
+
   /* NOTE: The className "host selected" renders a different style than simply "host". */
+  function handleClick() {
+      console.log("in handle Click", host)
+    onHostClick(host)
+  }
   return (
     <Card
-      className="host selected"
-      onClick={/* On Click what? */ null}
+      className={selected ? "host selected" : "host"}
+      onClick={handleClick}
       image={imageUrl}
       raised
       link
     />
-  );
+  )
 }
 
-export default Host;
+export default Host
