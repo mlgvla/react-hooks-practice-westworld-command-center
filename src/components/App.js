@@ -23,6 +23,9 @@ function App() {
     setselectedHostId(host.id)
   }
 
+  const selectedHost = hosts.find(host => host.id === selectedHostId)
+
+
   // who is selected and who is not.  We are adding a selected property to the host object
   const formattedHosts = hosts.map(host => ({
     ...host,
@@ -34,7 +37,11 @@ function App() {
   return (
     <Segment id="app">
       <WestWorldMap areas={areas} />
-      <Headquarters hosts={inactiveHosts} onHostClick={handleHostClick} />
+      <Headquarters
+        hosts={inactiveHosts}
+        onHostClick={handleHostClick}
+        selectedHost={selectedHost}
+      />
     </Segment>
   )
 }

@@ -7,7 +7,6 @@ function Host({ host, onHostClick }) {
 
   /* NOTE: The className "host selected" renders a different style than simply "host". */
   function handleClick() {
-      console.log("in handle Click", host)
     onHostClick(host)
   }
   return (
